@@ -70,5 +70,47 @@
     "username": "masteruser_1767218240258",
     "password": "$2b$10$M5yuzDxaMnCObxH5lgRlze.tXRtwP6NmbnWrEVjJ7x1O9.cFNbpBK",
     "createdAt": "2025-12-31T21:57:21.338Z"
+  },
+  {
+    "id": 13,
+    "username": "testuser_1767223326274",
+    "password": "$2b$10$LHqah3B4o3n25fqWDLoRHutihsR81e9UqxsPJ0uA8Jvsd4hnl2/NW",
+    "createdAt": "2025-12-31T23:22:09.919Z"
+  },
+  {
+    "id": 14,
+    "username": "testuser_1767225164594",
+    "password": "$2b$10$1WtBsps8tWdU340FuXYuCOsP2aj3KuIdr1xD3MvwMLIPFfSVeKao.",
+    "createdAt": "2025-12-31T23:52:48.161Z"
+  },
+  {
+    "id": 15,
+    "username": "loginuser_1767225170249",
+    "password": "$2b$10$aUGgfjbpjSK206NqLiGyFO3UapseR1Xd2DAimHY9TjhSwD9YK5kbW",
+    "createdAt": "2025-12-31T23:52:51.253Z"
+  },
+  {
+    "id": 16,
+    "username": "logoutuser_1767225172806",
+    "password": "$2b$10$6rnISwjNXGA43RdQca.MJOGFdOgPD/MPujImEguNd.LuN3jz7sQnu",
+    "createdAt": "2025-12-31T23:52:53.809Z"
+  },
+  {
+    "id": 17,
+    "username": "redirectuser_1767225173966",
+    "password": "$2b$10$BKyGnGe07dwGSHICYV09LeZLmNhnubcbnI.kb5dwB.ronnXcTgB5W",
+    "createdAt": "2025-12-31T23:52:54.981Z"
+  },
+  {
+    "id": 18,
+    "username": "redirectuser2_1767225175059",
+    "password": "$2b$10$PMf5PrhFeRPkS0DRREsdIuUTkrdNqqyjwZku7fJh0xyZOdRreNajy",
+    "createdAt": "2025-12-31T23:52:56.112Z"
+  },
+  {
+    "id": 19,
+    "username": "masteruser_1767225176194",
+    "password": "$2b$10$FduxlWBZQ2itdWXqjBozZ.EeODNlOTNSSj4McdTKfHVgts6cw2cSe",
+    "createdAt": "2025-12-31T23:52:57.184Z"
   }
 ]
