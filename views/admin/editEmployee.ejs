@@ -1,0 +1,70 @@
+<%- include('../partials/header', { title: title }) %>
+
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="card-title mb-0">Edit Employee</h3>
+            <a href="/admin/dashboard" class="btn btn-outline-secondary btn-sm">Back to Dashboard</a>
+          </div>
+
+          <% if (error) { %>
+            <div class="alert alert-danger" role="alert">
+              <%= error %>
+            </div>
+          <% } %>
+
+          <form action="/admin/employee/edit/<%= employee.id %>" method="POST">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" value="<%= employee.name || '' %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="designation" class="form-label">Designation</label>
+              <input type="text" class="form-control" id="designation" name="designation" value="<%= employee.designation || '' %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" value="<%= employee.email || '' %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="contact" class="form-label">Contact</label>
+              <input type="text" class="form-control" id="contact" name="contact" value="<%= employee.contact || '' %>" placeholder="+1-XXX-XXX-XXXX" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="department" class="form-label">Department</label>
+              <select class="form-select" id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Engineering" <%= employee.department === 'Engineering' ? 'selected' : '' %>>Engineering</option>
+                <option value="Product" <%= employee.department === 'Product' ? 'selected' : '' %>>Product</option>
+                <option value="HR" <%= employee.department === 'HR' ? 'selected' : '' %>>HR</option>
+                <option value="DevOps" <%= employee.department === 'DevOps' ? 'selected' : '' %>>DevOps</option>
+                <option value="Quality Assurance" <%= employee.department === 'Quality Assurance' ? 'selected' : '' %>>Quality Assurance</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="joiningDate" class="form-label">Joining Date</label>
+              <input type="date" class="form-control" id="joiningDate" name="joiningDate" value="<%= employee.joiningDate || '' %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="location" name="location" value="<%= employee.location || '' %>" placeholder="City, State" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Update Employee</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

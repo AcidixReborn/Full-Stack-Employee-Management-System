@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "username": "testuser_1767217520769",
+    "password": "$2b$10$cw1FFG9TXzDllbzobnY4VewDX3XBgaBI0HBLBV3ZuIGC1iy1CjZQC",
+    "createdAt": "2025-12-31T21:45:24.569Z"
+  },
+  {
+    "id": 2,
+    "username": "loginuser_1767217526741",
+    "password": "$2b$10$vYCaBzBDiaYk2jt9cRZ.NOBPkbFC0OG9yk.rf/eOPa0PmwdFNCpTa",
+    "createdAt": "2025-12-31T21:45:27.781Z"
+  },
+  {
+    "id": 3,
+    "username": "logoutuser_1767217529396",
+    "password": "$2b$10$ig9o1igiSHqoKAYuud/ZTujRCNoFFhfXwz7H/.N.UEJzJ9oAySXq2",
+    "createdAt": "2025-12-31T21:45:30.410Z"
+  },
+  {
+    "id": 4,
+    "username": "redirectuser_1767217530573",
+    "password": "$2b$10$XPfrc5a0Jo8EVwxDndHRjuw45IWqaMb9qaQzLpg46C4kOr2ju1l02",
+    "createdAt": "2025-12-31T21:45:31.610Z"
+  },
+  {
+    "id": 5,
+    "username": "redirectuser2_1767217531731",
+    "password": "$2b$10$rJF1AWVgqs5RJGr5eae1heXeh/CU4Bxq0hUR2sJPdQ5VXrkt3DJne",
+    "createdAt": "2025-12-31T21:45:32.780Z"
+  },
+  {
+    "id": 6,
+    "username": "masteruser_1767217532880",
+    "password": "$2b$10$/JaIw.Zf2xHWiihezBXU9OiCttV1Ua2VCPt.cxImcPn19u49zv0oy",
+    "createdAt": "2025-12-31T21:45:33.899Z"
+  },
+  {
+    "id": 7,
+    "username": "testuser_1767218226874",
+    "password": "$2b$10$Y1gWkf36/IS6Y3KmeUhz6ed8xkDi3CQlJW/HxY2FYR3z5wDNU.dNO",
+    "createdAt": "2025-12-31T21:57:11.228Z"
+  },
+  {
+    "id": 8,
+    "username": "loginuser_1767218233550",
+    "password": "$2b$10$my4pZDSg76yQymOvpk4gx.PObnLWeMlMJ9lGPYAtLuND3VDMbawpq",
+    "createdAt": "2025-12-31T21:57:14.630Z"
+  },
+  {
+    "id": 9,
+    "username": "logoutuser_1767218236476",
+    "password": "$2b$10$K3BvivtcT6Hr2zpdCB2CsubWVK.wPdZqkpg3i3LWuiK7FVBLF3wQ.",
+    "createdAt": "2025-12-31T21:57:17.549Z"
+  },
+  {
+    "id": 10,
+    "username": "redirectuser_1767218237744",
+    "password": "$2b$10$8391BtVf1VSYywxFdq8WCuZ1sbVophLyQl87FweU.E83qzhXB6/4q",
+    "createdAt": "2025-12-31T21:57:18.825Z"
+  },
+  {
+    "id": 11,
+    "username": "redirectuser2_1767218238962",
+    "password": "$2b$10$Xgo4Y4w8PxmuH2Erim2igu0cI6n5hsRvBeQfiUTQJf8WXYbGWNsW6",
+    "createdAt": "2025-12-31T21:57:20.079Z"
+  },
+  {
+    "id": 12,
+    "username": "masteruser_1767218240258",
+    "password": "$2b$10$M5yuzDxaMnCObxH5lgRlze.tXRtwP6NmbnWrEVjJ7x1O9.cFNbpBK",
+    "createdAt": "2025-12-31T21:57:21.338Z"
+  }
+]

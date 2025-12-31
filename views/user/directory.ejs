@@ -1,0 +1,59 @@
+<%- include('../partials/header', { title: title }) %>
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Employee Directory</h2>
+    <div>
+      <% if (user) { %>
+        <span class="me-3">Welcome, <strong><%= user.username %></strong></span>
+        <a href="/logout" class="btn btn-outline-secondary btn-sm">Logout</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-outline-primary btn-sm me-2">Login</a>
+        <a href="/signup" class="btn btn-primary btn-sm">Sign Up</a>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead class="table-primary">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Department</th>
+              <th>Joining Date</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% employees.forEach(function(emp) { %>
+              <tr>
+                <td><%= emp.id %></td>
+                <td><%= emp.name %></td>
+                <td><%= emp.designation %></td>
+                <td><%= emp.email %></td>
+                <td><%= emp.contact %></td>
+                <td><%= emp.department %></td>
+                <td><%= emp.joiningDate %></td>
+                <td><%= emp.location %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <% if (employees.length === 0) { %>
+        <div class="text-center text-muted py-4">
+          <p>No employees found.</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

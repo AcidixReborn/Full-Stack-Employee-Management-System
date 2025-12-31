@@ -1,0 +1,28 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "admin123"
+  },
+  "testUser": {
+    "username": "testuser",
+    "password": "testpass123"
+  },
+  "newEmployee": {
+    "name": "John Doe",
+    "designation": "Software Engineer",
+    "email": "john.doe@test.com",
+    "contact": "+1-555-555-5555",
+    "department": "Engineering",
+    "joiningDate": "2024-01-15",
+    "location": "Seattle, WA"
+  },
+  "updatedEmployee": {
+    "name": "John Doe Updated",
+    "designation": "Senior Software Engineer",
+    "email": "john.doe.updated@test.com",
+    "contact": "+1-555-555-9999",
+    "department": "Product",
+    "joiningDate": "2024-01-15",
+    "location": "Portland, OR"
+  }
+}
