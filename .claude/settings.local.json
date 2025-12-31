@@ -10,7 +10,21 @@
       "Bash(npx cypress install)",
       "Bash(taskkill:*)",
       "Bash(tasklist:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(node -e:*)",
+      "Bash(npm run test:headless:*)",
+      "Bash(powershell:*)",
+      "Bash(npm update:*)",
+      "Bash(\"C:\\\\Users\\\\dougl\\\\AppData\\\\Local\\\\Cypress\\\\Cache\\\\13.6.0\\\\Cypress\\\\Cypress.exe\" --help)",
+      "Bash(CYPRESS_INSTALL_BINARY=https://download.cypress.io/desktop/13.6.0/win32-x64/cypress.zip npx cypress install:*)",
+      "Bash(dir:*)",
+      "Bash(cmd /c \"C:\\\\Users\\\\dougl\\\\AppData\\\\Local\\\\Cypress\\\\Cache\\\\13.6.0\\\\Cypress\\\\Cypress.exe --version\")",
+      "Bash(timeout:*)",
+      "Bash(CYPRESS_VERIFY_TIMEOUT=1 npx cypress run:*)",
+      "Bash(\"C:/Users/dougl/AppData/Local/Cypress/Cache/13.6.0/Cypress/Cypress.exe\" --version)",
+      "Bash(where Cypress.exe)",
+      "Bash(cmd //c:*)"
     ]
   }
 }
