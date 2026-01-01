@@ -23,7 +23,8 @@ A comprehensive full-stack web application for managing employee records. Built 
 - Data persistence to JSON files using Node.js fs module
 
 ### Testing
-- 41 Cypress end-to-end tests
+- 42 Cypress end-to-end tests
+- Postman API collection for manual testing
 - Coverage includes: admin authentication, user authentication, CRUD operations, API endpoints
 
 ## Technology Stack
@@ -37,7 +38,8 @@ A comprehensive full-stack web application for managing employee records. Built 
 | Icons | Bootstrap Icons | 1.11.1 |
 | Security | bcrypt | 5.1.1 |
 | Cookies | cookie-parser | 1.4.6 |
-| Testing | Cypress | 13.6.0 |
+| Testing | Cypress | 13.17.0 |
+| API Testing | Postman | Collection included |
 | Data Storage | JSON files | (Node.js fs module) |
 
 ## Project Structure
@@ -76,6 +78,8 @@ Full-Stack-Employee-Management-System/
 ├── public/
 │   └── css/
 │       └── styles.css        # Custom Bootstrap-based styling
+├── postman/
+│   └── EMS_API_Collection.postman_collection.json  # Postman API tests
 └── cypress/
     ├── e2e/                  # Test specifications
     │   ├── admin.cy.js
@@ -140,6 +144,13 @@ npm run test:headless
 ```bash
 npm test
 ```
+
+### Postman API Testing
+1. Import the collection from `postman/EMS_API_Collection.postman_collection.json`
+2. Start the server: `npm start`
+3. Run the collection in Postman
+
+The Postman collection includes 11 API test requests covering all CRUD operations and error cases.
 
 ## API Endpoints
 

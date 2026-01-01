@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "ems-api-collection-2024",
+		"name": "Employee Management System API",
+		"description": "API collection for testing the Employee Management System REST endpoints.\n\n## Base URL\nhttp://localhost:3000\n\n## Endpoints\n- GET /api/employees - Get all employees\n- GET /api/employees/:id - Get employee by ID\n- POST /api/employees - Create new employee\n- PUT /api/employees/:id - Update employee\n- DELETE /api/employees/:id - Delete employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Employees",
+			"description": "CRUD operations for employee records",
+			"item": [
+				{
+					"name": "Get All Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees"]
+						},
+						"description": "Retrieves all employees from the database.\n\n**Expected Response:**\n- Status: 200 OK\n- Body: `{ success: true, count: N, data: [...] }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employees/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees", "1"]
+						},
+						"description": "Retrieves a single employee by their ID.\n\n**Expected Response (Success):**\n- Status: 200 OK\n- Body: `{ success: true, data: {...} }`\n\n**Expected Response (Not Found):**\n- Status: 404 Not Found\n- Body: `{ success: false, error: \"Employee not found\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee - Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employees/99999",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees", "99999"]
+						},
+						"description": "Test case for requesting a non-existent employee.\n\n**Expected Response:**\n- Status: 404 Not Found\n- Body: `{ success: false, error: \"Employee not found\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Smith\",\n    \"designation\": \"Software Engineer\",\n    \"email\": \"john.smith@company.com\",\n    \"contact\": \"+1-555-123-4567\",\n    \"department\": \"Engineering\",\n    \"joiningDate\": \"2024-01-15\",\n    \"location\": \"New York, NY\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees"]
+						},
+						"description": "Creates a new employee record.\n\n**Required Fields:**\n- name, designation, email, contact, department, joiningDate, location\n\n**Expected Response (Success):**\n- Status: 201 Created\n- Body: `{ success: true, data: {...} }`\n\n**Expected Response (Validation Error):**\n- Status: 400 Bad Request\n- Body: `{ success: false, error: \"...\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee - Missing Fields",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Incomplete Employee\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees"]
+						},
+						"description": "Test case for creating employee with missing required fields.\n\n**Expected Response:**\n- Status: 400 Bad Request\n- Body: `{ success: false, error: \"All fields are required\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee - Invalid Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"designation\": \"Tester\",\n    \"email\": \"invalid-email\",\n    \"contact\": \"+1-555-000-0000\",\n    \"department\": \"Engineering\",\n    \"joiningDate\": \"2024-01-01\",\n    \"location\": \"Test City\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees"]
+						},
+						"description": "Test case for creating employee with invalid email format.\n\n**Expected Response:**\n- Status: 400 Bad Request\n- Body: `{ success: false, error: \"Invalid email format\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee - Duplicate Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Duplicate User\",\n    \"designation\": \"Developer\",\n    \"email\": \"john.doe@company.com\",\n    \"contact\": \"+1-555-999-9999\",\n    \"department\": \"Engineering\",\n    \"joiningDate\": \"2024-01-01\",\n    \"location\": \"Boston, MA\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees"]
+						},
+						"description": "Test case for creating employee with an email that already exists.\n\n**Expected Response:**\n- Status: 409 Conflict\n- Body: `{ success: false, error: \"Email already exists\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Smith Updated\",\n    \"designation\": \"Senior Software Engineer\",\n    \"location\": \"San Francisco, CA\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employees/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees", "1"]
+						},
+						"description": "Updates an existing employee record. Only include fields you want to update.\n\n**Expected Response (Success):**\n- Status: 200 OK\n- Body: `{ success: true, data: {...} }`\n\n**Expected Response (Not Found):**\n- Status: 404 Not Found\n- Body: `{ success: false, error: \"Employee not found\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee - Not Found",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ghost Employee\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/employees/99999",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees", "99999"]
+						},
+						"description": "Test case for updating a non-existent employee.\n\n**Expected Response:**\n- Status: 404 Not Found\n- Body: `{ success: false, error: \"Employee not found\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employees/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees", "1"]
+						},
+						"description": "Deletes an employee record by ID.\n\n**Expected Response (Success):**\n- Status: 200 OK\n- Body: `{ success: true, message: \"Employee deleted successfully\" }`\n\n**Expected Response (Not Found):**\n- Status: 404 Not Found\n- Body: `{ success: false, error: \"Employee not found\" }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee - Not Found",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/employees/99999",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "employees", "99999"]
+						},
+						"description": "Test case for deleting a non-existent employee.\n\n**Expected Response:**\n- Status: 404 Not Found\n- Body: `{ success: false, error: \"Employee not found\" }`"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
