@@ -24,7 +24,10 @@
       "Bash(CYPRESS_VERIFY_TIMEOUT=1 npx cypress run:*)",
       "Bash(\"C:/Users/dougl/AppData/Local/Cypress/Cache/13.6.0/Cypress/Cypress.exe\" --version)",
       "Bash(where Cypress.exe)",
-      "Bash(cmd //c:*)"
+      "Bash(cmd //c:*)",
+      "Bash(netstat:*)",
+      "Bash(\"C:/Users/dougl/AppData/Local/Cypress/Cache/13.17.0/Cypress/Cypress.exe\" --version)",
+      "Bash(set CYPRESS_VERIFY_TIMEOUT=1)"
     ]
   }
 }

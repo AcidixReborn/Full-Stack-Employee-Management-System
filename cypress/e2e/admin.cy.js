@@ -5,10 +5,10 @@ describe('Admin Authentication', () => {
 
   it('should display admin login page', () => {
     cy.visit('/admin/login');
-    cy.contains('Admin Login').should('be.visible');
+    cy.contains('Admin Portal').should('be.visible');
     cy.get('#username').should('be.visible');
     cy.get('#password').should('be.visible');
-    cy.get('button[type="submit"]').should('contain', 'Login');
+    cy.get('button[type="submit"]').should('contain', 'Sign In');
   });
 
   it('should show error with invalid credentials', () => {
@@ -50,11 +50,11 @@ describe('Admin Dashboard', () => {
   });
 
   it('should display employee count', () => {
-    cy.contains('Total Employees:').should('be.visible');
+    cy.contains('Total Employees').should('be.visible');
   });
 
   it('should display Add Employee button', () => {
-    cy.contains('+ Add Employee').should('be.visible');
+    cy.contains('Add Employee').should('be.visible');
   });
 
   it('should display recent employees section', () => {
@@ -68,8 +68,8 @@ describe('Admin Dashboard', () => {
   });
 
   it('should navigate to Add Employee page', () => {
-    cy.contains('+ Add Employee').click();
+    cy.contains('Add Employee').first().click();
     cy.url().should('include', '/admin/employee/add');
-    cy.contains('Add Employee').should('be.visible');
+    cy.contains('Add New Employee').should('be.visible');
   });
 });

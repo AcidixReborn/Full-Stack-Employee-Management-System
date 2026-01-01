@@ -8,7 +8,7 @@ describe('User Authentication', () => {
 
   it('should display signup page', () => {
     cy.visit('/signup');
-    cy.contains('Sign Up').should('be.visible');
+    cy.contains('Create Account').should('be.visible');
     cy.get('#username').should('be.visible');
     cy.get('#password').should('be.visible');
     cy.get('#confirmPassword').should('be.visible');
@@ -16,7 +16,7 @@ describe('User Authentication', () => {
 
   it('should display login page', () => {
     cy.visit('/login');
-    cy.contains('User Login').should('be.visible');
+    cy.contains('Welcome Back').should('be.visible');
     cy.get('#username').should('be.visible');
     cy.get('#password').should('be.visible');
   });

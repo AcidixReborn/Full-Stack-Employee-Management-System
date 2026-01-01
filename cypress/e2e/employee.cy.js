@@ -5,7 +5,7 @@ describe('Employee CRUD Operations', () => {
 
   it('should add a new employee', () => {
     cy.fixture('testData').then((data) => {
-      cy.contains('+ Add Employee').click();
+      cy.contains('Add Employee').first().click();
       cy.url().should('include', '/admin/employee/add');
 
       cy.get('#name').type(data.newEmployee.name);
@@ -24,7 +24,7 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should require all fields when adding employee', () => {
-    cy.contains('+ Add Employee').click();
+    cy.contains('Add Employee').first().click();
     cy.get('#name').should('have.attr', 'required');
     cy.get('#designation').should('have.attr', 'required');
     cy.get('#email').should('have.attr', 'required');
@@ -51,7 +51,7 @@ describe('Employee CRUD Operations', () => {
 
   it('should navigate back from edit page to dashboard', () => {
     cy.get('table tbody tr').first().find('a.btn-primary').click();
-    cy.contains('Back to Dashboard').click();
+    cy.contains('Cancel').click();
     cy.url().should('include', '/admin/dashboard');
   });
 
@@ -66,10 +66,12 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should display employee details in cards', () => {
-    cy.get('.card').contains('Designation:').should('be.visible');
-    cy.get('.card').contains('Email:').should('be.visible');
-    cy.get('.card').contains('Contact:').should('be.visible');
-    cy.get('.card').contains('Department:').should('be.visible');
+    cy.get('.employee-card').should('exist');
+    cy.get('.employee-card').first().within(() => {
+      cy.get('.bi-envelope').should('exist');
+      cy.get('.bi-telephone').should('exist');
+      cy.get('.bi-building').should('exist');
+    });
   });
 });
 
