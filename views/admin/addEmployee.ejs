@@ -1,65 +1,123 @@
 <%- include('../partials/header', { title: title }) %>
 
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="/admin/dashboard">
+      <i class="bi bi-building me-2"></i>EMS Admin
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/dashboard">
+            <i class="bi bi-speedometer2 me-1"></i>Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/admin/employee/add">
+            <i class="bi bi-person-plus me-1"></i>Add Employee
+          </a>
+        </li>
+      </ul>
+      <a href="/admin/logout" class="btn btn-outline-light btn-sm">
+        <i class="bi bi-box-arrow-right me-1"></i>Logout
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
 <div class="container py-4">
   <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow">
-        <div class="card-body p-4">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="card-title mb-0">Add Employee</h3>
-            <a href="/admin/dashboard" class="btn btn-outline-secondary btn-sm">Back to Dashboard</a>
+    <div class="col-lg-6 col-md-8">
+      <div class="card">
+        <div class="card-header-custom">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-person-plus-fill me-2"></i>
+            <span>Add New Employee</span>
           </div>
-
+        </div>
+        <div class="card-body p-4">
           <% if (error) { %>
             <div class="alert alert-danger" role="alert">
-              <%= error %>
+              <i class="bi bi-exclamation-circle me-2"></i><%= error %>
             </div>
           <% } %>
 
           <form action="/admin/employee/add" method="POST">
-            <div class="mb-3">
-              <label for="name" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="<%= employee.name || '' %>" required>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">
+                  <i class="bi bi-person me-1"></i>Full Name
+                </label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= employee.name || '' %>" placeholder="Enter full name" required>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="designation" class="form-label">
+                  <i class="bi bi-briefcase me-1"></i>Designation
+                </label>
+                <input type="text" class="form-control" id="designation" name="designation" value="<%= employee.designation || '' %>" placeholder="e.g. Software Engineer" required>
+              </div>
             </div>
 
-            <div class="mb-3">
-              <label for="designation" class="form-label">Designation</label>
-              <input type="text" class="form-control" id="designation" name="designation" value="<%= employee.designation || '' %>" required>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">
+                  <i class="bi bi-envelope me-1"></i>Email
+                </label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= employee.email || '' %>" placeholder="email@company.com" required>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="contact" class="form-label">
+                  <i class="bi bi-telephone me-1"></i>Contact
+                </label>
+                <input type="text" class="form-control" id="contact" name="contact" value="<%= employee.contact || '' %>" placeholder="+1-XXX-XXX-XXXX" required>
+              </div>
             </div>
 
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" name="email" value="<%= employee.email || '' %>" required>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="department" class="form-label">
+                  <i class="bi bi-building me-1"></i>Department
+                </label>
+                <select class="form-select" id="department" name="department" required>
+                  <option value="">Select Department</option>
+                  <option value="Engineering" <%= employee.department === 'Engineering' ? 'selected' : '' %>>Engineering</option>
+                  <option value="Product" <%= employee.department === 'Product' ? 'selected' : '' %>>Product</option>
+                  <option value="HR" <%= employee.department === 'HR' ? 'selected' : '' %>>HR</option>
+                  <option value="DevOps" <%= employee.department === 'DevOps' ? 'selected' : '' %>>DevOps</option>
+                  <option value="Quality Assurance" <%= employee.department === 'Quality Assurance' ? 'selected' : '' %>>Quality Assurance</option>
+                </select>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="joiningDate" class="form-label">
+                  <i class="bi bi-calendar me-1"></i>Joining Date
+                </label>
+                <input type="date" class="form-control" id="joiningDate" name="joiningDate" value="<%= employee.joiningDate || '' %>" required>
+              </div>
             </div>
 
-            <div class="mb-3">
-              <label for="contact" class="form-label">Contact</label>
-              <input type="text" class="form-control" id="contact" name="contact" value="<%= employee.contact || '' %>" placeholder="+1-XXX-XXX-XXXX" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="department" class="form-label">Department</label>
-              <select class="form-select" id="department" name="department" required>
-                <option value="">Select Department</option>
-                <option value="Engineering" <%= employee.department === 'Engineering' ? 'selected' : '' %>>Engineering</option>
-                <option value="Product" <%= employee.department === 'Product' ? 'selected' : '' %>>Product</option>
-                <option value="HR" <%= employee.department === 'HR' ? 'selected' : '' %>>HR</option>
-                <option value="DevOps" <%= employee.department === 'DevOps' ? 'selected' : '' %>>DevOps</option>
-                <option value="Quality Assurance" <%= employee.department === 'Quality Assurance' ? 'selected' : '' %>>Quality Assurance</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label for="joiningDate" class="form-label">Joining Date</label>
-              <input type="date" class="form-control" id="joiningDate" name="joiningDate" value="<%= employee.joiningDate || '' %>" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="location" class="form-label">Location</label>
+            <div class="mb-4">
+              <label for="location" class="form-label">
+                <i class="bi bi-geo-alt me-1"></i>Location
+              </label>
               <input type="text" class="form-control" id="location" name="location" value="<%= employee.location || '' %>" placeholder="City, State" required>
             </div>
 
-            <button type="submit" class="btn btn-success w-100">Add Employee</button>
+            <div class="d-flex gap-2">
+              <a href="/admin/dashboard" class="btn btn-outline-secondary flex-grow-1">
+                <i class="bi bi-arrow-left me-1"></i>Cancel
+              </a>
+              <button type="submit" class="btn btn-success flex-grow-1">
+                <i class="bi bi-check-lg me-1"></i>Add Employee
+              </button>
+            </div>
           </form>
         </div>
       </div>

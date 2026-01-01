@@ -1,34 +1,47 @@
 <%- include('../partials/header', { title: title }) %>
 
-<div class="container">
-  <div class="row justify-content-center align-items-center min-vh-100">
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="card-body p-4">
-          <h3 class="card-title text-center mb-4">User Login</h3>
-
-          <% if (error) { %>
-            <div class="alert alert-danger" role="alert">
-              <%= error %>
-            </div>
-          <% } %>
-
-          <form action="/login" method="POST">
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" name="username" required autofocus>
+<div class="login-page d-flex align-items-center justify-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5 col-lg-4">
+        <div class="card login-card">
+          <div class="card-body">
+            <div class="login-brand">
+              <i class="bi bi-people-fill" style="font-size: 2.5rem; color: var(--primary);"></i>
+              <h2>Welcome Back</h2>
+              <p>Employee Management System</p>
             </div>
 
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" name="password" required>
+            <% if (error) { %>
+              <div class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-circle me-2"></i><%= error %>
+              </div>
+            <% } %>
+
+            <form action="/login" method="POST">
+              <div class="mb-3">
+                <label for="username" class="form-label">
+                  <i class="bi bi-person me-1"></i>Username
+                </label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required autofocus>
+              </div>
+
+              <div class="mb-4">
+                <label for="password" class="form-label">
+                  <i class="bi bi-lock me-1"></i>Password
+                </label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 btn-lg">
+                <i class="bi bi-box-arrow-in-right"></i>Sign In
+              </button>
+            </form>
+
+            <div class="text-center mt-4">
+              <span class="text-muted small">Don't have an account?</span>
+              <a href="/signup" class="small fw-semibold ms-1">Sign Up</a>
             </div>
-
-            <button type="submit" class="btn btn-dark w-100">Login</button>
-          </form>
-
-          <div class="text-center mt-3">
-            <small>Don't have an account? <a href="/signup">Sign Up</a></small>
           </div>
         </div>
       </div>
